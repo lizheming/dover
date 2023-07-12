@@ -1,0 +1,25 @@
+{
+  "name": "dover",
+  "version": "1.0.0",
+  "description": "A douban book/music/movie cover image mirror deta service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizheming/dover.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizheming/dover/issues"
+  },
+  "homepage": "https://github.com/lizheming/dover#readme",
+  "dependencies": {
+    "deta": "^1.1.0",
+    "koa": "^2.14.2",
+    "undici": "^5.22.1"
+  }
+}
