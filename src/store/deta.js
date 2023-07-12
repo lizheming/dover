@@ -3,7 +3,7 @@ const { Deta } = require('deta');
 
 const { STORE_PATH = '' } = process.env;
 
-const deta = Deta('c0DzpqTP2QVE_6WVSWnhTRdJF8ji3kukFpiaQiNTvALd3');
+const deta = Deta();
 const drive = deta.Drive('douban');
 
 module.exports = {
