@@ -1,8 +1,9 @@
-# Dover
-
-A douban book/music/movie cover image storage deta service.
-
-## How to Use
+---
+title: "Dover"
+tagline: "A douban book/music/movie cover image storage deta service"
+theme_color: "#edf4ed"
+git: "https://github.com/lizheming/dover"
+---
 
 https://<your-service>.deta.app/<movie|book|music>/<subject-id>.jpg
 

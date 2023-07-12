@@ -33,4 +33,4 @@ app.use(async (ctx) => {
   ctx.body = Buffer.from(file);
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
