@@ -7,7 +7,7 @@ const app = new Koa();
 
 app.use(async (ctx) => {
   ctx.type = 'image/jpg';
-  const reg = /^\/(movie|book|music|game)\/(\d+)\.jpg$/i;
+  const reg = /^\/(movie|book|music|game|celebrity)\/(\d+)\.jpg$/i;
   const match = ctx.path.match(reg);
   if (!match) {
     return;

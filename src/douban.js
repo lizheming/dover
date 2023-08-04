@@ -26,5 +26,6 @@ async function fetchSubject({type, id }) {
 
 module.exports = async function fetchCover({ type, id }) {
   const subject = await fetchSubject({ type, id });
-  return request(subject.cover_url, requestOptions).then(resp => resp.body.arrayBuffer());
+  const coverUrl = type === 'celebrity' ? subject.cover_img.url : subject.cover_url;
+  return request(coverUrl, requestOptions).then(resp => resp.body.arrayBuffer());
 }
