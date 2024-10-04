@@ -22,15 +22,6 @@ async function fetchCover({ type, id }, { host, apiKey, authToken }) {
   return fetch(coverUrl, requestOptions).then(resp => resp.arrayBuffer());
 }
 
-function base64ToArrayBuffer(base64) {
-  var binaryString = atob(base64);
-  var bytes = new Uint8Array(binaryString.length);
-  for (var i = 0; i < binaryString.length; i++) {
-      bytes[i] = binaryString.charCodeAt(i);
-  }
-  return bytes.buffer;
-}
-
 var main = {
   async fetch(request, env) {
     const { 
@@ -56,11 +47,11 @@ var main = {
       file = await fetchCover({ type, id }, { host: DOUBAN_API_HOST, apiKey: DOUBAN_API_KEY, authToken: AUTH_TOKEN });
       await DATABASE
         .prepare(`INSERT INTO posters (id, type, content) VALUES (?1, ?2, ?3)`)
-        .bind(id, type, btoa(String.fromCharCode(...new Uint8Array(file))))
+        .bind(id, type, file)
         .run();
         
     } else {
-      file = base64ToArrayBuffer(file);
+      file = new Uint8Array(file).buffer;
     }
 
     return new Response(
