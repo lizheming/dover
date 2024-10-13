@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/lizheming/dover#readme",
   "dependencies": {
+    "@vercel/blob": "^0.24.1",
     "deta": "^1.1.0",
     "koa": "^2.14.2",
     "undici": "^5.22.1",

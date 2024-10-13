@@ -2,7 +2,7 @@ const Koa = require('koa');
 const fetchCover = require('./douban');
 const stores = require('./store');
 
-const { STORE_TYPE = 'deta' } = process.env;
+const { STORE_TYPE = 'vercel' } = process.env;
 const app = new Koa();
 
 app.use(async (ctx) => {
@@ -21,8 +21,8 @@ app.use(async (ctx) => {
   const [_, type, id] = match;
   const filename = ctx.path;
 
-  const cacheFile = await store.get(filename);
-  if (cacheFile) {
+  const cacheFile = await store.get(filename, ctx);
+  if (cacheFile && typeof cacheFile !== 'boolean') {
     ctx.body = cacheFile;
     return;
   }
@@ -33,4 +33,4 @@ app.use(async (ctx) => {
   ctx.body = Buffer.from(file);
 });
 
-app.listen(process.env.PORT || 3000);
+module.exports = app.callback();
