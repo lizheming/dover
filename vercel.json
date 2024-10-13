@@ -1,0 +1,18 @@
+{
+  "name": "dover",
+  "github": {
+    "silent": true
+  },
+  "builds": [
+    {
+      "src": "src/vercel.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "src/vercel.js"
+    }
+  ]
+}
