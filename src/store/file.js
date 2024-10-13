@@ -14,6 +14,6 @@ module.exports = {
     }
   },
   set(filename, data) {
-    return fs.writeFile(path.join(STORE_PATH, filename), data, 'binary');
+    return fs.writeFile(path.join(STORE_PATH, filename), Buffer.from(data), 'binary');
   }
 }
